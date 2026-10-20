@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wedding Invitation | Mohammed Jamshad &amp; Ayishath Safwana</title>
+  <meta name="description" content="In the Name of Allah. Mr. Zainul Abid &amp; Mrs. Jameela Abid cordially invite you to celebrate the wedding of Mohammed Jamshad K.A &amp; Ayishath Safwana on Saturday, 19 December 2026." />
+  <meta property="og:title" content="Wedding Invitation — Jamshad &amp; Safwana" />
+  <meta property="og:description" content="Join us in celebrating the Nikah of Mohammed Jamshad &amp; Ayishath Safwana on 19 December 2026 at Baithul Aysha, Paika." />
+  <meta property="og:type" content="website" />
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💍</text></svg>" />
+
+  <!-- Google Fonts: Royal Serif, Elegant Script & Arabic Calligraphy -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel+Decorative:wght@400;700;900&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <!-- Canvas for Golden Particles & Stardust -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Floating Audio & Action Controls -->
+  <div class="floating-controls">
+    <button id="audio-btn" class="ctrl-btn" title="Toggle Calming Music" aria-label="Toggle Background Music">
+      <div class="equalizer-bars">
+        <span class="bar bar-1"></span>
+        <span class="bar bar-2"></span>
+        <span class="bar bar-3"></span>
+        <span class="bar bar-4"></span>
+      </div>
+      <span class="ctrl-label">Music</span>
+    </button>
+    <button id="confetti-btn" class="ctrl-btn" title="Shower Golden Petals" aria-label="Shower Petals">
+      <span class="icon">✨</span>
+      <span class="ctrl-label">Bless</span>
+    </button>
+  </div>
+
+  <!-- ============================================== -->
+  <!-- 1. LUXURY ENVELOPE / ROYAL BOX OPENING SCREEN  -->
+  <!-- ============================================== -->
+  <div id="envelope-overlay" class="envelope-overlay">
+    <div class="overlay-backdrop"></div>
+    <div class="envelope-wrapper">
+      
+      <!-- Top Crest & Monogram -->
+      <div class="royal-crest-intro">
+        <div class="crest-bismillah-mini">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+        <p class="crest-tag">ROYAL WEDDING INVITATION</p>
+        <div class="crest-ornament">
+          <span class="line"></span>
+          <span class="diamond">◆</span>
+          <span class="line"></span>
+        </div>
+      </div>
+
+      <!-- 3D Luxury Envelope Card -->
+      <div class="envelope-3d" id="envelope-3d">
+        <!-- Envelope Back Flap / Body -->
+        <div class="env-back">
+          <div class="arabesque-corner top-left"></div>
+          <div class="arabesque-corner top-right"></div>
+          <div class="arabesque-corner bottom-left"></div>
+          <div class="arabesque-corner bottom-right"></div>
+        </div>
+
+        <!-- Inside Card that peeks out -->
+        <div class="env-letter" id="env-letter">
+          <div class="letter-inner">
+            <span class="letter-bismillah">بِسْمِ اللَّهِ</span>
+            <div class="letter-monogram">J &amp; S</div>
+            <div class="letter-names">Jamshad &amp; Safwana</div>
+            <div class="letter-date">19 · 12 · 2026</div>
+          </div>
+        </div>
+
+        <!-- Envelope Flaps -->
+        <div class="env-fold-left"></div>
+        <div class="env-fold-right"></div>
+        <div class="env-fold-bottom"></div>
+        
+        <!-- Top Fold (opens upward) -->
+        <div class="env-flap-top" id="flap-top">
+          <div class="flap-pattern"></div>
+        </div>
+
+        <!-- Gold Wax Seal -->
+        <button class="wax-seal" id="wax-seal-btn" aria-label="Click to open invitation">
+          <div class="seal-outer-ring"></div>
+          <div class="seal-inner-ring"></div>
+          <div class="seal-content">
+            <span class="seal-initials">J &amp; S</span>
+            <span class="seal-sub">NIKAH</span>
+          </div>
+          <div class="seal-glow"></div>
+        </button>
+      </div>
+
+      <!-- Instruction / Open Prompt -->
+      <div class="open-prompt">
+        <p class="prompt-text">Click the Wax Seal to Open</p>
+        <div class="pulse-arrows">
+          <span>↓</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============================================== -->
+  <!-- 2. MAIN WEDDING INVITATION EXPERIENCE           -->
+  <!-- ============================================== -->
+  <main id="main-content" class="main-content">
+
+    <!-- HERO SECTION WITH ROYAL ISLAMIC ARCH -->
+    <header class="hero-section">
+      <div class="hero-arch-container">
+        <!-- Islamic Ornate Frame -->
+        <div class="arch-gold-frame">
+          <div class="gold-corner tl"></div>
+          <div class="gold-corner tr"></div>
+          <div class="gold-corner bl"></div>
+          <div class="gold-corner br"></div>
+
+          <!-- Bismillah Calligraphy -->
+          <div class="bismillah-calligraphy">
+            <svg class="bismillah-svg" viewBox="0 0 500 120" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#DFB76C" />
+                  <stop offset="30%" stop-color="#FFE6A3" />
+                  <stop offset="70%" stop-color="#DFB76C" />
+                  <stop offset="100%" stop-color="#9E7B35" />
+                </linearGradient>
+                <filter id="goldGlow">
+                  <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                  <feMerge>
+                    <feMergeNode in="coloredBlur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+              </defs>
+              <!-- Classical Calligraphy Representation -->
+              <text x="250" y="75" text-anchor="middle" class="calligraphy-arabic-text" fill="url(#goldGrad)" filter="url(#goldGlow)">
+                بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+              </text>
+            </svg>
+            <p class="translation-text">IN THE NAME OF ALLAH, THE MOST GRACIOUS, THE MOST MERCIFUL</p>
+          </div>
+
+          <!-- Quranic Verse -->
+          <div class="quran-verse">
+            <p class="verse-arabic">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً</p>
+            <p class="verse-english">"And of His signs is that He created for you from yourselves mates that you may find tranquility in them; and He placed between you affection and mercy."</p>
+            <span class="verse-ref">— Surah Ar-Rum (30:21) —</span>
+          </div>
+
+          <div class="ornate-divider">
+            <span class="line"></span>
+            <span class="motif">✦ ⚜ ✦</span>
+            <span class="line"></span>
+          </div>
+
+          <!-- Parents Invitation Line -->
+          <div class="invitation-intro">
+            <h2 class="parents-names">Mr. Zainul Abid &amp; Mrs. Jameela Abid</h2>
+            <p class="parents-residence">(Baithul Aysha, Manavaty Nagar Road, Kunhipara, Paika)</p>
+            <p class="invitation-lead">Cordially invite you to join us in celebrating our beloved son's wedding</p>
+          </div>
+
+          <!-- The Couple Presentation -->
+          <div class="couple-showcase">
+            
+            <!-- Groom Card -->
+            <div class="person-card groom-card">
+              <div class="card-ornament top"></div>
+              <span class="role-badge">The Groom</span>
+              <h1 class="person-name">Mohammed Jamshad <span class="initials">K.A</span></h1>
+              <p class="lineage">(Grand S/o of Late Kundil Mohamed and Late Abdullah Kotta Adka)</p>
+              <div class="card-ornament bottom"></div>
+            </div>
+
+            <!-- Sacred Union Symbol -->
+            <div class="union-badge">
+              <div class="rings-icon">
+                <svg viewBox="0 0 80 50" class="rings-svg">
+                  <circle cx="28" cy="25" r="18" fill="none" stroke="url(#goldGrad)" stroke-width="3" />
+                  <circle cx="52" cy="25" r="18" fill="none" stroke="url(#goldGrad)" stroke-width="3" />
+                  <path d="M 40 18 Q 40 14 38 12 Q 40 8 42 12 Q 40 14 40 18 Z" fill="#FFE6A3" />
+                </svg>
+              </div>
+              <span class="and-text">AND</span>
+            </div>
+
+            <!-- Bride Card -->
+            <div class="person-card bride-card">
+              <div class="card-ornament top"></div>
+              <span class="role-badge">The Bride</span>
+              <h2 class="person-name">Ayishath Safwana</h2>
+              <p class="lineage">D/o Mr. Abdulla and Mrs. Aysha</p>
+              <p class="bride-residence">(Koovakkudal House, Badiyadka, P/O Perdala)</p>
+              <div class="card-ornament bottom"></div>
+            </div>
+
+          </div>
+
+          <!-- Auspicious Tag -->
+          <div class="insha-allah-wrap">
+            <div class="ornate-separator">
+              <span class="sep-line"></span>
+              <span class="sep-text">IN SHA ALLAH ON</span>
+              <span class="sep-line"></span>
+            </div>
+          </div>
+
+          <!-- Date & Event Highlight Badges -->
+          <div class="event-highlights-grid">
+            
+            <!-- Date Card -->
+            <div class="highlight-box date-box">
+              <div class="box-icon">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <rect x="3" y="4" width="18" height="18" rx="3" />
+                  <line x1="16" y1="2" x2="16" y2="6" />
+                  <line x1="8" y1="2" x2="8" y2="6" />
+                  <line x1="3" y1="10" x2="21" y2="10" />
+                </svg>
+              </div>
+              <div class="box-content">
+                <span class="box-label">DAY &amp; DATE</span>
+                <span class="box-day">SATURDAY</span>
+                <div class="box-big-date">19</div>
+                <div class="box-month-year">DECEMBER 2026</div>
+                <div class="box-hijri">10 Rajab 1448 AH</div>
+              </div>
+            </div>
+
+            <!-- Nikah Time Card -->
+            <div class="highlight-box time-box">
+              <div class="box-icon">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+              </div>
+              <div class="box-content">
+                <span class="box-label">SACRED CEREMONY</span>
+                <span class="box-event-title">NIKAH</span>
+                <div class="box-time-val">AFTER ASAR NAMAZ</div>
+                <p class="box-time-sub">Around 4:30 PM onwards</p>
+              </div>
+            </div>
+
+            <!-- Venue Card -->
+            <div class="highlight-box venue-box">
+              <div class="box-icon">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                  <circle cx="12" cy="9" r="2.5" />
+                </svg>
+              </div>
+              <div class="box-content">
+                <span class="box-label">VENUE LOCATION</span>
+                <h3 class="venue-title">BAITHUL AYSHA</h3>
+                <p class="venue-road">Manavaty Nagar Road, Kunhipara</p>
+                <p class="venue-city">Paika, Kasaragod</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Quick Action Buttons -->
+          <div class="event-action-buttons">
+            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding+of+Mohammed+Jamshad+%26+Ayishath+Safwana&dates=20261219T110000Z/20261219T160000Z&details=Nikah+after+Asar+Namaz+celebration+of+Mohammed+Jamshad+K.A+%26+Ayishath+Safwana&location=Baithul+Aysha,+Manavaty+Nagar+Road,+Kunhipara,+Paika&sf=true&output=xml" target="_blank" rel="noopener noreferrer" class="btn btn-gold" id="btn-google-cal">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+                <line x1="12" y1="14" x2="12" y2="18" />
+                <line x1="10" y1="16" x2="14" y2="16" />
+              </svg>
+              <span>Add to Google Calendar</span>
+            </a>
+
+            <button id="btn-ical" class="btn btn-outline" title="Download for Apple / Outlook Calendar">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              <span>Download iCal (.ics)</span>
+            </button>
+
+            <a href="https://maps.google.com/?q=Baithul+Aysha,+Manavaty+Nagar+Road,+Kunhipara,+Paika" target="_blank" rel="noopener noreferrer" class="btn btn-outline" id="btn-map-dir">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="3 11 22 2 13 21 11 13 3 11" />
+              </svg>
+              <span>Google Maps Location</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </header>
+
+    <!-- ============================================== -->
+    <!-- 3. LIVE COUNTDOWN SECTION                      -->
+    <!-- ============================================== -->
+    <section class="section countdown-section">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="sub-title">COUNTING DOWN THE BLESSED MOMENTS</span>
+          <h2 class="title">Until the Nikah</h2>
+          <div class="ornate-line"></div>
+        </div>
+
+        <div class="countdown-grid" id="countdown-grid">
+          <div class="countdown-card">
+            <div class="countdown-circle">
+              <span class="count-num" id="cd-days">--</span>
+            </div>
+            <span class="count-label">DAYS</span>
+          </div>
+
+          <div class="countdown-card">
+            <div class="countdown-circle">
+              <span class="count-num" id="cd-hours">--</span>
+            </div>
+            <span class="count-label">HOURS</span>
+          </div>
+
+          <div class="countdown-card">
+            <div class="countdown-circle">
+              <span class="count-num" id="cd-minutes">--</span>
+            </div>
+            <span class="count-label">MINUTES</span>
+          </div>
+
+          <div class="countdown-card">
+            <div class="countdown-circle">
+              <span class="count-num" id="cd-seconds">--</span>
+            </div>
+            <span class="count-label">SECONDS</span>
+          </div>
+        </div>
+
+        <p class="countdown-tagline">"May Allah bless this union and shower them with happiness, peace, and eternal love."</p>
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 4. LOCATION & DIRECTIONS SECTION               -->
+    <!-- ============================================== -->
+    <section class="section venue-section">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="sub-title">CELEBRATION DESTINATION</span>
+          <h2 class="title">Venue &amp; Getting There</h2>
+          <div class="ornate-line"></div>
+        </div>
+
+        <div class="venue-card-wrapper">
+          <div class="venue-details-card">
+            <div class="venue-badge-crest">
+              <span class="crest-icon">📍</span>
+            </div>
+            <h3 class="venue-place-name">Baithul Aysha</h3>
+            <p class="venue-street">Manavaty Nagar Road, Kunhipara</p>
+            <p class="venue-area">Paika, Kasaragod District, Kerala</p>
+
+            <div class="venue-info-items">
+              <div class="v-item">
+                <span class="v-item-icon">🕌</span>
+                <div>
+                  <strong>Nikah Gathering</strong>
+                  <p>Solemnization immediately following Asar prayer</p>
+                </div>
+              </div>
+              <div class="v-item">
+                <span class="v-item-icon">🚗</span>
+                <div>
+                  <strong>Parking &amp; Accessibility</strong>
+                  <p>Dedicated guest arrival area &amp; parking support</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="venue-btns">
+              <a href="https://www.google.com/maps/search/?api=1&query=Baithul+Aysha,+Manavaty+Nagar+Road,+Kunhipara,+Paika" target="_blank" rel="noopener noreferrer" class="btn btn-gold">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                  <circle cx="12" cy="9" r="2.5" />
+                </svg>
+                <span>Open in Google Maps</span>
+              </a>
+
+              <button class="btn btn-outline" id="btn-copy-address">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
+                <span id="copy-text">Copy Address</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Stylized Map Visual Representation -->
+          <div class="venue-map-embed">
+            <div class="map-overlay-card">
+              <div class="map-pin-pulse">
+                <div class="pulse-ring"></div>
+                <div class="pin-dot"></div>
+              </div>
+              <div class="map-label">
+                <strong>Baithul Aysha</strong>
+                <span>Kunhipara, Paika</span>
+              </div>
+            </div>
+            <!-- Embedded OpenStreetMap / Map Preview with graceful fallback -->
+            <iframe 
+              title="Paika Location Map"
+              width="100%" 
+              height="100%" 
+              style="border:0; filter: contrast(105%) saturate(110%);" 
+              loading="lazy" 
+              allowfullscreen 
+              src="https://maps.google.com/maps?q=Paika,Kasaragod,Kerala&t=&z=14&ie=UTF8&iwloc=&output=embed">
+            </iframe>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 5. RSVP & ATTENDANCE FORM                      -->
+    <!-- ============================================== -->
+    <section class="section rsvp-section">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="sub-title">HONOR US WITH YOUR PRESENCE</span>
+          <h2 class="title">RSVP</h2>
+          <div class="ornate-line"></div>
+          <p class="section-desc">Kindly let us know if you can join us for this joyous milestone.</p>
+        </div>
+
+        <div class="rsvp-card">
+          <form id="rsvp-form" class="rsvp-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="rsvp-name">Your Full Name *</label>
+                <input type="text" id="rsvp-name" required placeholder="e.g. Brother Farhan / Dr. Ayesha" />
+              </div>
+
+              <div class="form-group">
+                <label for="rsvp-phone">Phone / WhatsApp *</label>
+                <input type="tel" id="rsvp-phone" required placeholder="e.g. +91 98765 43210" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="rsvp-guests">Number of Guests</label>
+                <select id="rsvp-guests">
+                  <option value="1">1 Person</option>
+                  <option value="2" selected>2 Persons</option>
+                  <option value="3">3 Persons</option>
+                  <option value="4">4 Persons</option>
+                  <option value="5+">5+ Family Members</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="rsvp-status">Attendance Status *</label>
+                <select id="rsvp-status" required>
+                  <option value="Joyfully Attending">Joyfully Attending (Insha'Allah)</option>
+                  <option value="Will Join Reception">Will Join Reception</option>
+                  <option value="Sending Prayers from Afar">Regretfully unable, sending prayers</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="rsvp-note">Special Note or Dua for the Couple</label>
+              <textarea id="rsvp-note" rows="3" placeholder="Write your heartfelt prayers for Jamshad &amp; Safwana..."></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-gold btn-large">
+                <span>Confirm RSVP</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 13l4 4L19 7" />
+                </svg>
+              </button>
+
+              <button type="button" id="rsvp-whatsapp-btn" class="btn btn-whatsapp btn-large">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm0 17.8c-1.5 0-2.97-.4-4.24-1.16l-.3-.18-3.12.82.83-3.04-.2-.31a7.868 7.868 0 0 1-1.2-4.13c0-4.36 3.55-7.91 7.91-7.91 2.11 0 4.1.82 5.6 2.31 1.49 1.49 2.31 3.48 2.31 5.6 0 4.36-3.55 7.91-7.91 7.91zm4.33-5.93c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.92-1.19-.71-.63-1.19-1.42-1.33-1.66-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.47-.4-.4-.54-.41-.14-.01-.3-.01-.46-.01-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.02.4 1.38.52.58.18 1.11.16 1.53.1.47-.07 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28z"/>
+                </svg>
+                <span>Send via WhatsApp</span>
+              </button>
+            </div>
+          </form>
+
+          <!-- Success Alert -->
+          <div id="rsvp-success" class="rsvp-success hidden">
+            <div class="success-icon">💐</div>
+            <h3>JazakAllah Khair!</h3>
+            <p>Your RSVP response has been received with warmth. We eagerly look forward to celebrating together!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 6. GUESTBOOK / BLESSINGS & DUAS               -->
+    <!-- ============================================== -->
+    <section class="section wishes-section">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="sub-title">WORDS OF LOVE &amp; PRAYERS</span>
+          <h2 class="title">Wishes &amp; Duas</h2>
+          <div class="ornate-line"></div>
+          <p class="section-desc">Leave a sacred blessing for Mohammed Jamshad &amp; Ayishath Safwana</p>
+        </div>
+
+        <div class="wishes-wrapper">
+          <!-- Post Dua Form -->
+          <div class="wish-form-card">
+            <h3 class="wish-form-title">Send Your Blessings</h3>
+            <form id="wish-form">
+              <div class="form-group">
+                <input type="text" id="wish-author" required placeholder="Your Name / Family Name" />
+              </div>
+              <div class="form-group">
+                <textarea id="wish-message" required rows="3" placeholder="May Allah bless your marriage and unite you both in goodness (Barakallahu lakuma...)"></textarea>
+              </div>
+              <button type="submit" class="btn btn-gold btn-block">
+                <span>Post Dua &amp; Wishes</span>
+                <span class="btn-sparkle">✨</span>
+              </button>
+            </form>
+          </div>
+
+          <!-- Dua Wall Feed -->
+          <div class="wishes-feed-card">
+            <h3 class="feed-title">Messages from Well-Wishers</h3>
+            <div class="wishes-list" id="wishes-list">
+              <!-- Default sample heartfelt wishes -->
+              <div class="wish-item">
+                <div class="wish-header">
+                  <span class="wish-author">Kundil &amp; Kottadkkam Family</span>
+                  <span class="wish-date">Family Blessing</span>
+                </div>
+                <p class="wish-text">"بَارَكَ اللَّهُ لَكَ وَبَارَكَ عَلَيْكَ وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ. May Allah bless this sacred union with peace, unending love, and righteousness."</p>
+              </div>
+
+              <div class="wish-item">
+                <div class="wish-header">
+                  <span class="wish-author">Jesna &amp; Junu</span>
+                  <span class="wish-date">Sisterly Love</span>
+                </div>
+                <p class="wish-text">"Heartiest congratulations to dearest Jamshad and Safwana! Wishing you both a lifetime of smiles, laughter, and companionship in both worlds!"</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 7. FAMILY TRIBUTE & SHARING HAPPINESS          -->
+    <!-- ============================================== -->
+    <section class="section family-tribute-section">
+      <div class="section-container">
+        <div class="tribute-card">
+          <div class="tribute-crest">
+            <svg viewBox="0 0 100 40" class="crest-wings">
+              <path d="M10 20 Q30 5 50 20 Q70 5 90 20 Q70 35 50 20 Q30 35 10 20 Z" fill="none" stroke="url(#goldGrad)" stroke-width="1.5" />
+            </svg>
+          </div>
+          <span class="tribute-label">SHARING HAPPINESS WITH</span>
+          <h2 class="tribute-names">Jesna, Junu, Kundil Family &amp; Kottadkkam Family</h2>
+          <div class="tribute-ornament">
+            <span>❦</span>
+          </div>
+          <p class="tribute-footer">"Together with all relatives, near and dear ones, we look forward to welcoming you."</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- 8. SHARE & FOOTER                             -->
+    <!-- ============================================== -->
+    <footer class="wedding-footer">
+      <div class="section-container">
+        <div class="share-box">
+          <h3 class="share-title">Invite Friends &amp; Relatives</h3>
+          <p class="share-desc">Share this invitation directly with your family and loved ones</p>
+          <div class="share-buttons">
+            <button id="btn-share-whatsapp" class="btn btn-whatsapp">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm0 17.8c-1.5 0-2.97-.4-4.24-1.16l-.3-.18-3.12.82.83-3.04-.2-.31a7.868 7.868 0 0 1-1.2-4.13c0-4.36 3.55-7.91 7.91-7.91 2.11 0 4.1.82 5.6 2.31 1.49 1.49 2.31 3.48 2.31 5.6 0 4.36-3.55 7.91-7.91 7.91zm4.33-5.93c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.92-1.19-.71-.63-1.19-1.42-1.33-1.66-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.47-.4-.4-.54-.41-.14-.01-.3-.01-.46-.01-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.02.4 1.38.52.58.18 1.11.16 1.53.1.47-.07 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28z"/>
+              </svg>
+              <span>Share on WhatsApp</span>
+            </button>
+            <button id="btn-copy-link" class="btn btn-outline">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+              </svg>
+              <span id="copy-link-text">Copy Invitation Link</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="footer-monogram">J &amp; S</p>
+          <p class="footer-date">Saturday, 19th December 2026 · Paika, Kasaragod</p>
+          <p class="footer-credits">Made with warm blessings for Mohammed Jamshad &amp; Ayishath Safwana</p>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">Address copied to clipboard!</div>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
